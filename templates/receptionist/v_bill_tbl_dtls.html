@@ -1,0 +1,29 @@
+{% extends 'receptionist/r_index.html' %}
+{% block body %}
+<form name="form1" method="post" action="">
+  <table width="200" border="1" class="table table-bordered table-hover">
+    <tr>
+    <td>Sl no</td>
+    <td>Bill no</td>
+    <td>Item name</td>
+    <td>Quantity</td>
+    <td>Item price</td>
+    <td>Total amount</td>
+    <td>Customer table no</td>
+    </tr>
+
+    {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.bill_no}}</td>
+      <td>&nbsp;{{ i.TDYS_MENU.MENU.item_name}}</td>
+      <td>&nbsp;{{ i.ORDER.quantity}}</td>
+      <td>&nbsp;{{ i.TDYS_MENU.MENU.price}}</td>
+      <td>&nbsp;{{ i.ORDER.total_cost}}</td>
+      <td>{{i.RESTO_TABLE.table_no}}</td>
+
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}

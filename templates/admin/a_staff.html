@@ -1,0 +1,90 @@
+{% extends 'admin/index.html' %}
+{% block body %}
+
+	<form method="post" action="/myapp/add_staff_post/" enctype="multipart/form-data">
+		<TABLE class="tabtable table-bordered table-hover">
+			<h1>Staff</h1>{% csrf_token %}
+			<tr>
+				<td>Name</td>
+			<td><input type="text" name="name"></td>
+			</tr>
+			<tr>
+				<td>House name</td>
+			<td><input type="text" name="hs_name"></td>
+			</tr>
+			<tr>
+				<td>House no</td>
+			<td><input type="text" name="hs_no"></td>
+			</tr>
+			<tr>
+				<td>Pincode</td>
+			<td><input type="text" name="pin"></td>
+			</tr>
+			<tr>
+				<td>Post</td>
+			<td><input type="text" name="post"></td>
+			</tr>
+			<tr>
+				<td>Place</td>
+			<td><input type="text" name="place"></td>
+			</tr>
+			<tr>
+				<td>District</td>
+			<td><input type="text" name="district"></td>
+			</tr>
+			<tr>
+				<td>City</td>
+			<td><input type="text" name="city"></td>
+			</tr>
+			<tr>
+				<td>State</td>
+			<td><input type="text" name="state"></td>
+			</tr>
+            <tr>
+				<td>Email</td>
+			<td><input type="email" name="email"></td>
+			</tr>
+			<tr>
+				<td>Phone</td>
+			<td><input type="text" name="phn"></td>
+			</tr>
+			<tr>
+				<td>DOB</td>
+			<td><input type="date" name="age"></td>
+			</tr>
+			<tr>
+				<td>photo</td>
+			<td><input type="file" name="photo"></td>
+			</tr>
+			<tr>
+				<td>Gender</td>
+			<td><input type="radio" name="gender" value="male">Male</td>
+			<td><input type="radio" name="gender" value="female">Female</td>
+			<td><input type="radio" name="gender" value="others">Others</td>
+			</tr>
+
+			<tr>
+
+				<td>Type</td>
+				<td><select name="typ">
+
+                  <option>Receptionist</option>
+                  <option>Service station</option>
+                  <option>Kitchen</option>
+
+                </select></td>
+			</tr>
+
+
+
+
+			<tr>
+
+   	        <td colspan="2"><center><input type="submit" name="submit" value="ADD" class="btn btn-success"></center></td>
+            </tr>
+
+		
+
+	</TABLE>
+	</form>
+{% endblock %}

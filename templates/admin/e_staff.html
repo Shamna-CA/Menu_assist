@@ -1,0 +1,95 @@
+{% extends 'admin/index.html' %}
+{% block body %}
+
+	<form method="post" action="/myapp/edit_staff_post/" enctype="multipart/form-data">
+		<TABLE border="2">
+			<input type="hidden" name="mid" value="{{ data.id }}"/>
+			<h1>Staff</h1>{% csrf_token %}
+			<tr>
+				<td>Name</td>
+			<td><input type="text" name="name" value="{{ data.Name }}"></td>
+			</tr>
+			<tr>
+				<td>House name</td>
+			<td><input type="text" name="hs_name" value="{{ data.hs_name }}"></td>
+			</tr>
+			<tr>
+				<td>House no</td>
+			<td><input type="text" name="hs_no" value="{{ data.hs_no }}"></td>
+			</tr>
+			<tr>
+				<td>Pincode</td>
+			<td><input type="text" name="pin" value="{{ data.pin }}"></td>
+			</tr>
+			<tr>
+				<td>Post</td>
+			<td><input type="text" name="post" value="{{ data.post }}"></td>
+			</tr>
+			<tr>
+				<td>Place</td>
+			<td><input type="text" name="place" value="{{ data.place}}"></td>
+			</tr>
+			<tr>
+				<td>City</td>
+			<td><input type="text" name="city" value="{{ data.city }}"></td>
+			</tr>
+
+				<td>District</td>
+			<td><input type="text" name="district" value="{{ data.District }}"></td>
+			</tr>
+
+			<tr>
+
+			<tr>
+				<td>State</td>
+			<td><input type="text" name="state" value="{{ data.State }}"></td>
+			</tr>
+            <tr>
+				<td>Email</td>
+			<td><input type="email" name="email" value="{{ data.email }}"></td>
+			</tr>
+			<tr>
+				<td>Phone</td>
+			<td><input type="text" name="phn" value="{{ data.Phone }}"></td>
+			</tr>
+			<tr>
+				<td>DOB</td>
+			<td><input type="text" name="age" value="{{ data.dob }}"></td>
+			</tr>
+			<tr>
+				<td>Photo</td>
+			<td><input type="file" name="photo" ></td><br>
+				<img src="{{ data.photo }}" height="100px" width="100px">
+			</tr>
+			<tr>
+				<td>Gender</td>
+			<td><input type="radio" {% if data.gender == 'male' %} checked {% endif %} name="gender" value="male">Male</td>
+			<td><input type="radio" {% if data.gender == 'female' %} checked {% endif %} name="gender" value="female">Female</td>
+			<td><input type="radio" {% if data.gender == 'others' %} checked {% endif %} name="gender" value="others">Others</td>
+			</tr>
+
+			<tr>
+
+				<td>Type</td>
+				<td><select name="typ">
+
+                  <option {% if data.typ == 'Receptionist' %} selected {% endif %}>Receptionist</option>
+                  <option {% if data.typ == 'Service station' %} selected {% endif %}>Service station</option>
+                  <option {% if data.typ == 'Kitchen' %} selected {% endif %}>Kitchen</option>
+
+                </select></td>
+			</tr>
+
+
+
+
+			<tr>
+
+   	        <td colspan="2"><center><input type="submit" name="submit" value="Update" class="btn btn-success"></center></td>
+            </tr>
+
+		
+
+	</TABLE>
+	</form>
+{% endblock %}

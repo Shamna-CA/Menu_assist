@@ -1,0 +1,57 @@
+{% extends 'receptionist/r_index.html' %}
+{% block body %}
+	<form method="post" action="/myapp/add_tdys_menu_post/">
+		<table class="table table-bordered table-hover">
+			<h1>Todays Menu</h1>{% csrf_token %}
+            <br><br>
+			<tr>
+				<td>Item</td>
+				<td>
+
+				<select name="item_name">
+
+					{% for i in data %}
+
+                  <option value="{{ i.id }}">{{ i.item_name }}</option>
+
+					{% endfor %}
+
+				</select>
+
+				</td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td colspan="2"><input type="submit" name="sub" value="Add" class="btn btn-success"></td>
+			</tr>
+		</table>
+
+	</form>
+	<br><br><br>
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1" class="table table-bordered table-hover">
+    <tr>
+      <td>Sl no</td>
+      <td>Item name</td>
+      <td>Image</td>
+      <td>Price</td>
+      <td>Rating</td>
+      <td>Status</td>
+
+    </tr>
+
+    {% for i in data1 %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.MENU.item_name}}</td>
+      <td>&nbsp;<img src="{{i.MENU.img}}" height="100px"> </td>
+      <td>{{ i.MENU.price}}</td>
+      <td>{{ rating }}</td>
+      <td>{{ i.MENU.status}}</td>
+      <td><a href="/myapp/delete_tdys_menu/{{ i.id }}" class="btn btn-danger">Delete</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}

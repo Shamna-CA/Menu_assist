@@ -1,0 +1,32 @@
+{% extends 'admin/index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/v_menu_post/#about">
+  {% csrf_token %}
+  <table width="200" border="1" class="table table-bordered table-hover">
+    <tr><td colspan="7"><input type="text" name="menu"><input type="submit" value="Search" class="btn btn-primary"></td></tr>
+    <tr>
+      <td>Sl no</td>
+      <td>Item name</td>
+      <td>Image</td>
+      <td>Price</td>
+      <td>Duration</td>
+      <td></td>
+
+    </tr>
+    {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.item_name }}</td>
+      <td>&nbsp;<img src="{{ i.img}}" height="100px"></td>
+      <td>&nbsp;{{ i.price }}</td>
+      <td>{{ i.duration }}</td>
+
+      <td><a href="/myapp/edit_menu/{{ i.id }}" class="btn btn-success">Edit</a></td>
+      <td><a href="/myapp/delete_menu/{{ i.id }}" class="btn btn-danger">Delete</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'admin/index.html' %}
+{% block body %}
+	<form method="post" action="/myapp/add_menu_post/" enctype="multipart/form-data">
+		<table class="table table-bordered table-hover">
+			<h1>MENU</h1>{% csrf_token %}
+			<tr>
+				<td>Item name</td>
+				<td><input type="text" name="item"></td>
+			</tr>
+			<tr>
+				<td>Image</td>
+				<td><input type="file" name="item_img"></td>
+			</tr>
+			<tr>
+				<td>Duration</td>
+				<td><input type="text" name="duration"></td>
+			</tr>
+			<tr>
+				<td>Price</td>
+				<td><input type="text" name="price"></td>
+			</tr>
+			
+			<tr>
+        	<td colspan="2"> <center><input type="submit" class="btn btn-success" name="submit" value="ADD" ></center></td>
+            </tr>
+
+          
+
+		</table>
+		 
+	</form>
+{% endblock %}

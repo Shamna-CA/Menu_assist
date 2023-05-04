@@ -1,0 +1,55 @@
+{% extends 'receptionist/r_index.html' %}
+{% block body %}
+<form action="" method="get">
+<table width="200" border="1">
+  <tr>
+    <td>Name</td>
+    <td>{{ data.Name }}</td>
+  </tr>
+  <tr>
+    <td>House name</td>
+    <td>{{ data.hs_name }}</td>
+  </tr>
+  <tr>
+    <td>House no</td>
+    <td>{{ data.hs_no}}</td>
+  </tr>
+  <tr>
+    <td>Address</td>
+    <td>
+      {{ data.place }}, {{ data.post}}<br>
+      {{ data.pin}},{{ data.city }}, {{ data.State }}
+    </td>
+  </tr>
+  <tr>
+    <td>District</td>
+    <td>{{ data.District }}</td>
+  </tr>
+  <tr>
+    <td>phone</td>
+    <td>{{ data.Phone }}</td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>{{ data.email }}</td>
+  </tr>
+  <tr>
+    <td>Age</td>
+    <td>{{ data.Age}}</td>
+  </tr>
+  <tr>
+    <td>Gender</td>
+    <td>{{ data.gender }}</td>
+  </tr>
+  <tr>
+    <td>Type</td>
+    <td>{{ data.typ }}</td>
+  </tr>
+
+  <tr>
+    <td>Photo</td>
+    <td><img src="{{ data.photo }}" height="100px"></td>
+  </tr>
+</table>
+</form>
+{% endblock %}

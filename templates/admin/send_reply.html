@@ -1,0 +1,17 @@
+{% extends 'admin/index.html' %}
+{% block body %}
+<form action="/myapp/send_reply_post/" method="post" enctype="multipart/form-data">
+  <table width="200" border="1" class="table table-bordered table-hover">{% csrf_token %}
+
+      <input type="hidden" name="mid" value="{{ mid }}">
+     <tr>
+            <td>Reply</td>
+            <td><input type="text" name="reply"></td>
+     </tr>
+     <tr>
+       <td colspan="2"><input type="submit" name="Add" class="btn btn-success"></td>
+     </tr>
+  </table>
+</form>
+
+{% endblock %}

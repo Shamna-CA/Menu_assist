@@ -1,0 +1,30 @@
+{% extends 'admin/index.html' %}
+{% block body %}
+<form action="" method="get">
+  <table width="200" border="1" class="table table-bordered table-hover">
+    <tr><td colspan="6">From <input type="date" name="fdate"> To <input type="date" name="tdate">
+     <input type="submit" value="Search" class="btn btn-primary"><br><br></td></tr>
+    <tr>
+      <td>Sl no</td>
+      <td>Complaint</td>
+      <td>Date</td>
+      <td>Customer table no</td>
+      <td>Reply</td>
+    </tr>
+
+
+    {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.complaint}}</td>
+      <td>{{ i.date}}</td>
+      <td>{{ i.RESTO_TABLE.table_no}}</td>
+      <td>{% if i.reply == "pending" %}<a href="/myapp/send_reply/{{ i.id }}" class="btn btn-success">Send reply</a>{% else %}{{ i.reply }} {% endif %}</td>
+
+    </tr>
+
+    {% endfor %}
+  </table>
+</form>
+
+{% endblock %}

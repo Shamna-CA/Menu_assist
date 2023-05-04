@@ -1,0 +1,36 @@
+{% extends 'admin/index.html' %}
+{% block body %}
+	<form method="post" action="/myapp/edit_menu_post/" enctype="multipart/form-data">
+		<table class="table table-bordered table-hover">
+			<input type="hidden" name="mid" value="{{ data.id }}"/>
+			<h1>MENU</h1>{% csrf_token %}
+			<tr>
+				<td>Item name</td>
+				<td><input type="text" name="item" value="{{ data.item_name }}"></td>
+			</tr>
+			<tr>
+				<td>Image</td>
+				<td><input type="file" name="item_img"><br>
+					<img src="{{ data.img }}" height="100px" width="100px">
+
+				</td>
+			</tr>
+			<tr>
+				<td>Duration</td>
+				<td><input type="text" name="duration" value="{{ data.duration }}"></td>
+			</tr>
+			<tr>
+				<td>Price</td>
+				<td><input type="text" name="price" value="{{ data.price }}"></td>
+			</tr>
+			
+			<tr>
+        	<td colspan="2"> <input type="submit" name="submit" value="UPDATE" class="btn btn-success"></td>
+            </tr>
+
+          
+
+		</table>
+		 
+	</form>
+{% endblock %}

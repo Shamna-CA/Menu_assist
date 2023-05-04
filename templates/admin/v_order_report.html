@@ -1,0 +1,33 @@
+{% extends 'admin/index.html' %}
+{% block body %}
+
+
+<form id="form1" name="form1" method="post" action="">
+  {% csrf_token %}
+  <table width="200" border="1" class="table table-bordered table-hover">
+    <tr><td colspan="6">From <input type="date" name="fdate"> To <input type="date" name="tdate">
+     <input type="submit" value="Search" class="btn btn-primary"><br><br></td></tr>
+    <tr>
+      <td>Sl no</td>
+      <td>Item name</td>
+      <td>Image</td>
+      <td>No of item</td>
+      <td>Price</td>
+      <td>Date</td>
+    </tr>
+
+    {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.TDYS_MENU.MENU.item_name}}</td>
+      <td>&nbsp;<img src="{{i.TDYS_MENU.MENU.img}}" height="100px"> </td>
+      <td>{{ i.quantity}}</td>
+      <td>&nbsp;{{ i.TDYS_MENU.MENU.price}}</td>
+      <td>&nbsp;{{ i.date}}</td>
+
+    </tr>
+    {% endfor %}
+
+  </table>
+</form>
+{% endblock %}

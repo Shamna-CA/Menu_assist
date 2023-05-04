@@ -1,0 +1,30 @@
+{% extends 'admin/index.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  {% csrf_token %}
+  <table width="200" border="1" class="table table-bordered table-hover">
+    <tr><td colspan="6">From <input type="date" name="fdate"> To <input type="date" name="tdate">
+     <input type="submit" value="Search" class="btn btn-primary"><br><br></td></tr>
+    <tr>
+      <td>Sl no</td>
+      <td>Date</td>
+      <td>Item</td>
+      <td>Rating</td>
+      <td>Customer table no</td>
+
+    </tr>
+    {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.date}}</td>
+      <td>&nbsp;{{ i.MENU.item_name}}</td>
+<!--      <td>Ghee roast</td>-->
+      <td>&nbsp;{{ i.rating}}</td>
+<!--      <td>{{i.table_no}}</td>-->
+      <td>1</td>
+
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}

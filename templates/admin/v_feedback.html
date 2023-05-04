@@ -1,0 +1,28 @@
+{% extends 'admin/index.html' %}
+{% block body %}
+<form name="form1" method="post" action="">
+  <table width="200" border="1" class="table table-bordered table-hover">
+    <tr><td colspan="6">From <input type="date" name="fdate"> To <input type="date" name="tdate">
+     <input type="submit" value="Search" class="btn btn-primary"><br><br></td></tr>
+    <tr>
+    <td>Sl no</td>
+    <td>Date</td>
+    <td>Customer table no</td>
+    <td>Feedback</td>
+
+    </tr>
+
+    {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.date}}</td>
+      <td>{{ i.RESTO_TABLE.table_no}}</td>
+      <td>{{ i.feedback }}</td>
+
+
+    </tr>
+    {% endfor %}
+
+  </table>
+</form>
+{% endblock %}
